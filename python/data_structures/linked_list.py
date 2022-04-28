@@ -4,12 +4,17 @@ class LinkedList:
     """
 
     def __init__(self):
-        # initialization here
-        pass
+        self.head = None
+        
 
     def some_method(self):
         # method body here
         pass
+
+class Node:
+    def __init__(self, value=None, next=None):
+        self.value = value
+        self.next = next
 
 
 class TargetError:
