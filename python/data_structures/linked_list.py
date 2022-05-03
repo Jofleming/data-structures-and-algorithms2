@@ -12,9 +12,9 @@ class LinkedList:
         pass
 
 class Node:
-    def __init__(self, value=None, next=None):
+    def __init__(self, value=None, next_=None):
         self.value = value
-        self.next = next
+        self.next = next_
 
 
 class TargetError:

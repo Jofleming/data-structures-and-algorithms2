@@ -3,7 +3,7 @@
 To create a new class called pseudo queue that acts like the queue we made before, but under the hood uses two stacks.
 
 ## Whiteboard Process
-![pseudo-queue-whiteboard](White-Board.png)
+![pseudo-queue-whiteboard](pseudo-queue-whiteboard.png)
 
 
 ## Approach and Efficiency

@@ -33,9 +33,9 @@ class Stack:
     
 class Node:
 
-    def __init__(self, value, next=None):
+    def __init__(self, value, next_=None):
         self.value = value
-        self.next = next
+        self.next = next_
 
 class InvalidOperationError(Exception):
     '''
