@@ -1,3 +1,5 @@
+from data_structures.invalid_operation_error import InvalidOperationError
+
 class Queue:
     """
     A linked list that holds values which will be retrieved in order added. First in first out.
@@ -44,7 +46,3 @@ class Node:
         self.value = value
         self.next = next_
 
-class InvalidOperationError(Exception):
-    '''
-    Custom error
-    '''

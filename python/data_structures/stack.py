@@ -1,3 +1,5 @@
+from data_structures.invalid_operation_error import InvalidOperationError
+
 class Stack:
     """
     A linked list of values that resolves Last in First Out.
@@ -37,8 +39,3 @@ class Node:
         self.value = value
         self.next = next_
 
-class InvalidOperationError(Exception):
-    '''
-    Insert custom exception.
-    '''
-    pass
