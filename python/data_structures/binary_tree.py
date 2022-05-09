@@ -49,11 +49,22 @@ class BinaryTree:
 
         return ordered_values
 
-    # def post_order(self):
-    #     '''
+    def post_order(self):
+        '''
+        Order is left, right, append.
+        '''
+        ordered_values = []
 
-    #     '''
-    #     def walk(root, values):
+        def walk(root, values):
+            if not root:
+                return
+            walk(root.left, values)
+            walk(root.right, values)
+            values.append(root.value)
+        
+        walk(self.root, ordered_values)
+
+        return ordered_values
 
 
 class Node:
