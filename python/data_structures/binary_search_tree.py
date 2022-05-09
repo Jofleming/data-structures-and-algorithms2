@@ -32,4 +32,22 @@ class BinarySearchTree(BinaryTree):
             
         walk(self.root, node_to_add)
 
+    def contains(self, value):
+        if self.root is None:
+            return False
+        
+        def walk(root, value):
+            if root.value == value:
+                return True
+            elif value < root.value:
+                if root.left:
+                    return walk(root.left, value)
+            elif value > root.value:
+                if root.right:
+                    return walk(root.right, value)
+
+            return False
+        
+        return walk(self.root, value)
+
 
