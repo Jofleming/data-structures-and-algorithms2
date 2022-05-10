@@ -9,7 +9,7 @@ class BinaryTree:
 
     def pre_order(self):
         '''
-
+        
         '''
         def walk(root, values):
             # If empty return. This is base case
@@ -65,6 +65,22 @@ class BinaryTree:
         walk(self.root, ordered_values)
 
         return ordered_values
+
+    def find_maximum_value(self):
+
+        def walk(root, values):
+            if not root:
+                return values
+            if root.value > values:
+                values = root.value
+            values = walk(root.left, values)
+            values = walk(root.right, values)
+            return values
+
+        max_value = walk(self.root, 0)
+
+        return max_value
+
 
 
 class Node:
