@@ -1,11 +1,16 @@
+from data_structures.queue import Queue
+
 class BinaryTree:
     """
     A tree of nodes, starting with a single root, that all contain a value, left, and right.
     With left and right referring to potential child nodes.
     """
 
-    def __init__(self):
-        self.root = None
+    def __init__(self, root=None, values=None):
+        self.root = root
+        if values:
+            for value in values:
+                self.add(value)
 
     def pre_order(self):
         '''
@@ -81,11 +86,37 @@ class BinaryTree:
 
         return max_value
 
+    def add(self, value):
+
+        node = Node(value)
+
+        if not self.root:
+            self.root = node
+            return
+
+        breadth = Queue()
+
+        breadth.enqueue(self.root)
+
+        while not breadth.is_empty():
+            front = breadth.dequeue()
+            if not front.left:
+                front.left = node
+                return
+            else:
+                breadth.enqueue(front.left)
+
+            if not front.right:
+                front.right = node
+                return
+            else:
+                breadth.enqueue(front.right)
+
 
 
 class Node:
 
-    def __init__(self, value):
+    def __init__(self, value, left=None, right=None):
         self.value = value
-        self.left = None
-        self.right = None
+        self.left = left
+        self.right = right
