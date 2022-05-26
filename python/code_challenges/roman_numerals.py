@@ -9,7 +9,7 @@ def total_roman_numeral(numeral_string):
     total = 0
 
     for i in range(len(numeral_string)):
-        if not numeral_string[i + 1]:
+        if i == (len(numeral_string) - 1):
             total += roman_numbers[numeral_string[i]]
 
         elif roman_numbers[numeral_string[i]] < roman_numbers[numeral_string[i + 1]]:
@@ -17,5 +17,6 @@ def total_roman_numeral(numeral_string):
 
         elif roman_numbers[numeral_string[i]] >= roman_numbers[numeral_string[i + 1]]:
             total += roman_numbers[numeral_string[i]]
+
 
     return total
