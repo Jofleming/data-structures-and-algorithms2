@@ -2,7 +2,6 @@
 
 import re
 
-
 def first_repeated_word(word):
     pattern = re.compile('[^a-zA-Z ]')
     naked_content = pattern.sub('', word)
