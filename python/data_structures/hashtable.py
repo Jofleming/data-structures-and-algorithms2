@@ -1,7 +1,3 @@
-
-
-from ctypes import sizeof
-
 from python.data_structures.linked_list import LinkedList
 
 
@@ -17,8 +13,11 @@ class Hashtable:
 
     def hash(self, key):
         char_sum = 0
-        for char in key:
-            char_sum += ord(char)
+        if type(key) is str:
+            for char in key:
+                char_sum += ord(char)
+        elif type(key) is int:
+                char_sum = key
         primed = char_sum * 599
         index = primed % self.size
         return index
@@ -37,7 +36,18 @@ class Hashtable:
         return None
 
     def contains(self, key):
-        return bool(self.get(key))
+        index = self.hash(key)
+        bucket = self.buckets[index]
+
+        if bucket is None:
+            return False
+        current = bucket.head
+        while current:
+            if current.value[0] == key:
+                return True
+            current = current.next
+        return False
+        
 
     def keys(self):
         keys = set()
@@ -55,6 +65,6 @@ class Hashtable:
         index = self.hash(key)
         bucket = self.buckets[index]
         if bucket is None:
-            self.buckets[index] = LinkedList()
+            bucket = LinkedList()
         
         bucket.insert((key, value))

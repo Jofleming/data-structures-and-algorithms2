@@ -10,12 +10,12 @@ class Queue:
         self.rear = None
 
     def enqueue(self, value):
-        if self.rear:
-            self.rear.next = Node(value)
-            self.rear = self.rear.next
+        new = Node(value, None)
+        if self.is_empty():
+            self.front = new
         else:
-            self.rear = Node(value)
-            self.front = self.rear
+            self.rear.next = new
+        self.rear = new
 
     def dequeue(self): 
         if self.front is None:
