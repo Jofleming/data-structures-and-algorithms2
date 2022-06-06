@@ -65,6 +65,6 @@ class Hashtable:
         index = self.hash(key)
         bucket = self.buckets[index]
         if bucket is None:
-            bucket = LinkedList()
+            self.buckets[index] = LinkedList()
         
-        bucket.insert((key, value))
+        self.buckets[index].insert((key, value))
