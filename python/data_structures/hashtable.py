@@ -1,5 +1,4 @@
-from python.data_structures.linked_list import LinkedList
-
+from data_structures.linked_list import LinkedList
 
 class Hashtable:
     """
